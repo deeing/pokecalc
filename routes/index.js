@@ -5,6 +5,10 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+	res.json({message: "hi"});
+});
+
+router.post('/calc', function(req, res, next) {
 	const gen = Generations.get(5); // alternatively: const gen = 5;
 	const result = calculate(
 	  gen,
@@ -22,8 +26,7 @@ router.get('/', function(req, res, next) {
 	  new Move(gen, 'Focus Blast')
 	);
 
-	console.log(result);
-    res.json({message: result});
+    res.json({message: req.body});
 });
 
 module.exports = router;
