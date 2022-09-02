@@ -29,7 +29,7 @@ router.post('/calc', function(req, res, next) {
 	  new Move(gen, 'Focus Blast')
 	);
 
-    res.json({message: req.body});
+    res.json(result);
 });
 
 module.exports = router;
