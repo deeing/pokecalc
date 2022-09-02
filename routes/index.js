@@ -10,15 +10,18 @@ router.get('/', function(req, res, next) {
 
 router.post('/calc', function(req, res, next) {
 	const gen = Generations.get(5); // alternatively: const gen = 5;
+	const attacker = req.body.attacker;
+	const defender = req.body.defender;
+	
 	const result = calculate(
 	  gen,
-	  new Pokemon(gen, 'Gengar', {
+	  new Pokemon(gen, attacker, {
 		item: 'Choice Specs',
 		nature: 'Timid',
 		evs: {spa: 252},
 		boosts: {spa: 1},
 	  }),
-	  new Pokemon(gen, 'Chansey', {
+	  new Pokemon(gen, defender, {
 		item: 'Eviolite',
 		nature: 'Calm',
 		evs: {hp: 252, spd: 252},
