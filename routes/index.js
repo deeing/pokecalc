@@ -54,12 +54,12 @@ function updateStats(pokemon, statName, value)
 	pokemon.stats[statName] = calculateStat(value);
 }
 
-function updateHPStat(pokemon, value)
+/*function updateHPStat(pokemon, value)
 {
 	pokemon.species.baseStats.hp = value;
 	pokemon.rawStats.hp = calculateHP(value);
 	pokemon.stats.hp = calculateHP(value);
-}
+}*/
 
 
 function calculateStat(base)
@@ -67,9 +67,9 @@ function calculateStat(base)
 	return (((2 * base + IV_MAX) * LEVEL)/100) + 5;
 }
 
-function calculateHP(base)
+/*function calculateHP(base)
 {
 	return (((2 * base + IV_MAX) * LEVEL)/100) + LEVEL + 10;
-}
+}*/
 
 module.exports = router;
