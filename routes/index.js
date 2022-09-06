@@ -35,9 +35,7 @@ router.post('/calc', function(req, res, next) {
 	  gen,
 	  attacker,
 	  new Pokemon(gen, defender, {
-		item: 'Eviolite',
-		nature: 'Calm',
-		evs: {hp: 252, spd: 252},
+		nature: 'Serious',
 	  }),
 	  new Move(gen, 'Focus Blast')
 	);
