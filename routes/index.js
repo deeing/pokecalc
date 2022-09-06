@@ -41,4 +41,16 @@ router.post('/calc', function(req, res, next) {
     res.json(attacker);
 });
 
+function updateStats(pokemon, statName, value)
+{
+	pokemon.species.baseStats[statName] = value;
+	pokemon.rawStats[statName] = calculateStat(value);
+	pokemon.stats[statName] = calculateStat(value);
+}
+
+function calculateStat(base)
+{
+	return (((2 * base + IV_MAX) * LEVEL)/100) + 5;
+}
+
 module.exports = router;
