@@ -39,7 +39,7 @@ const IV_MAX = 31;
 
 function calculateStat(base)
 {
-	return ((2 * base + IV_MAX) * 100)/100) + 5;
+	return (((2 * base + IV_MAX) * 100)/100) + 5;
 }
 
 module.exports = router;
