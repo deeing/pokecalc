@@ -18,8 +18,8 @@ router.post('/calc', function(req, res, next) {
 	});
 	
 	attacker.species.baseStats.spa = specialAtk;
-	attacker.rawStats.spa = calculateStat(base);
-	attacker.stats.spa = calculateStat(base);
+	attacker.rawStats.spa = calculateStat(specialAtk);
+	attacker.stats.spa = calculateStat(specialAtk);
 	
 	const result = calculate(
 	  gen,
