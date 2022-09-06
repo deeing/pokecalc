@@ -3,6 +3,9 @@ import {calculate, Generations, Pokemon, Move} from '@smogon/calc';
 var express = require('express');
 var router = express.Router();
 
+const IV_MAX = 31;
+const LEVEL = 100;
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
 	res.json({message: "hi"});
