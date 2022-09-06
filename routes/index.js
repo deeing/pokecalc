@@ -23,10 +23,10 @@ router.post('/calc', function(req, res, next) {
 	
 	//updateHPStat(attacker, hp);
 	updateStats(attacker, "atk", attack);
-	updateStats(attacker, "def", defense);
+	//updateStats(attacker, "def", defense);
 	updateStats(attacker, "spa", specialAtk);
-	updateStats(attacker, "spd", specialDef);
-	updateStats(attacker, "spe", speed);
+	//updateStats(attacker, "spd", specialDef);
+	//updateStats(attacker, "spe", speed);
 	
 	const defender = req.body.defender;
 
