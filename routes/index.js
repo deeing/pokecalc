@@ -18,8 +18,8 @@ router.post('/calc', function(req, res, next) {
 	});
 	
 	attacker.species.baseStats.spa = specialAtk;
-	//attacker.rawStats.spa = specialAtk;
-	//attacker.stats.spa = specialAtk;
+	attacker.rawStats.spa = calculateStat(base);
+	attacker.stats.spa = calculateStat(base);
 	
 	const result = calculate(
 	  gen,
@@ -34,5 +34,12 @@ router.post('/calc', function(req, res, next) {
 
     res.json(attacker);
 });
+
+const IV_MAX = 31;
+
+function calculateStat(base)
+{
+	return ((2 * base + IV_MAX) * 100)/100) + 5;
+}
 
 module.exports = router;
