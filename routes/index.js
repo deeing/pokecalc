@@ -32,7 +32,7 @@ router.post('/calc', function(req, res, next) {
 	  new Move(gen, 'Focus Blast')
 	);
 
-    res.json(attacker);
+    res.json(result);
 });
 
 const IV_MAX = 31;
