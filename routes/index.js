@@ -18,6 +18,7 @@ router.post('/calc', function(req, res, next) {
 		evs: {spa: 252},
 	});
 	
+	attacker.baseStats.spa = specialAtk;
 	attacker.rawStats.spa = specialAtk;
 	attacker.stats.spa = specialAtk;
 	
