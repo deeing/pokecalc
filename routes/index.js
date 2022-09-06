@@ -1,7 +1,7 @@
 import {calculate, Generations, Pokemon, Move} from '@smogon/calc';
 
-var express = require('express');
-var router = express.Router();
+import express from "express";
+var router = express();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
