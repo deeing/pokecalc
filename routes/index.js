@@ -15,7 +15,6 @@ router.post('/calc', function(req, res, next) {
 	
 	const attacker = new Pokemon(gen, "Magikarp", {
 		nature: 'Serious',
-		evs: {spa: 252},
 	});
 	
 	attacker.species.baseStats.spa = specialAtk;
