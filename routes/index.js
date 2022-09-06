@@ -19,6 +19,7 @@ router.post('/calc', function(req, res, next) {
 	const specialAtk = req.body.spa;
 	const specialDef = req.body.spd;
 	const speed = req.body.spe;
+	const move = req.body.move;
 	
 	const attacker = new Pokemon(gen, "Magikarp", {
 		nature: 'Serious',
@@ -33,13 +34,15 @@ router.post('/calc', function(req, res, next) {
 	
 	const defender = req.body.defender;
 	
+	const moveName = move ? move : "Focus Blast";
+	
 	const result = calculate(
 	  gen,
 	  attacker,
 	  new Pokemon(gen, defender, {
 		nature: 'Serious',
 	  }),
-	  new Move(gen, 'Focus Blast')
+	  new Move(gen, moveName)
 	);
 
     res.json(result);
