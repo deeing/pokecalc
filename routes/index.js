@@ -10,6 +10,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/calc', function(req, res, next) {
 	const gen = Generations.get(5); // alternatively: const gen = 5;
+	const specialAtk = req.body.atk;
 	const specialAtk = req.body.spa;
 	const defender = req.body.defender;
 	
@@ -17,9 +18,8 @@ router.post('/calc', function(req, res, next) {
 		nature: 'Serious',
 	});
 	
-	attacker.species.baseStats.spa = specialAtk;
-	attacker.rawStats.spa = calculateStat(specialAtk);
-	attacker.stats.spa = calculateStat(specialAtk);
+	updateStats(attacker, "atk", attack);
+	updateStats(attacker, "spa", specialAtk);
 	
 	const result = calculate(
 	  gen,
@@ -36,6 +36,14 @@ router.post('/calc', function(req, res, next) {
 });
 
 const IV_MAX = 31;
+
+function updateStats(pokemon, statName, value)
+{
+	pokemon.species.baseStats[statName] = value;
+	pokemon.rawStats[statName] = calculateStat(value);
+	pokemon.stats[statName] = calculateStat(value);
+}
+
 
 function calculateStat(base)
 {
