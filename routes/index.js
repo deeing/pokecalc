@@ -10,66 +10,29 @@ router.get('/', function(req, res, next) {
 
 router.post('/calc', function(req, res, next) {
 	const gen = Generations.get(5); // alternatively: const gen = 5;
-	const hp = req.body.hp;
-	const attack = req.body.atk;
-	const defense = req.body.def;
 	const specialAtk = req.body.spa;
-	const specialDef = req.body.spd;
-	const speed = req.body.spe;
+	const defender = req.body.defender;
 	
 	const attacker = new Pokemon(gen, "Magikarp", {
 		nature: 'Serious',
 	});
 	
-	//updateHPStat(attacker, hp);
-	updateStats(attacker, "atk", attack);
-	//updateStats(attacker, "def", defense);
-	updateStats(attacker, "spa", specialAtk);
-	//updateStats(attacker, "spd", specialDef);
-	//updateStats(attacker, "spe", speed);
-	
-	const defender = req.body.defender;
-
-	const moveName = req.body.move ? req.body.move || "Focus Blast";
+	attacker.species.baseStats.spa = specialAtk;
+	//attacker.rawStats.spa = specialAtk;
+	//attacker.stats.spa = specialAtk;
 	
 	const result = calculate(
 	  gen,
 	  attacker,
 	  new Pokemon(gen, defender, {
-		nature: 'Serious',
+		item: 'Eviolite',
+		nature: 'Calm',
+		evs: {hp: 252, spd: 252},
 	  }),
-	  new Move(gen, moveName)
+	  new Move(gen, 'Focus Blast')
 	);
 
-    res.json(result);
+    res.json(attacker);
 });
-
-const IV_MAX = 31;
-const LEVEL = 100;
-
-function updateStats(pokemon, statName, value)
-{
-	pokemon.species.baseStats[statName] = value;
-	pokemon.rawStats[statName] = calculateStat(value);
-	pokemon.stats[statName] = calculateStat(value);
-}
-
-/*function updateHPStat(pokemon, value)
-{
-	pokemon.species.baseStats.hp = value;
-	pokemon.rawStats.hp = calculateHP(value);
-	pokemon.stats.hp = calculateHP(value);
-}*/
-
-
-function calculateStat(base)
-{
-	return (((2 * base + IV_MAX) * LEVEL)/100) + 5;
-}
-
-/*function calculateHP(base)
-{
-	return (((2 * base + IV_MAX) * LEVEL)/100) + LEVEL + 10;
-}*/
 
 module.exports = router;
