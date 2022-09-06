@@ -24,10 +24,12 @@ router.post('/calc', function(req, res, next) {
 		nature: 'Serious',
 	});
 	
+	//updateHPStat(attacker, hp);
 	updateStats(attacker, "atk", attack);
+	updateStats(attacker, "def", defense);
 	updateStats(attacker, "spa", specialAtk);
-	//attacker.rawStats.spa = specialAtk;
-	//attacker.stats.spa = specialAtk;
+	updateStats(attacker, "spd", specialDef);
+	updateStats(attacker, "spe", speed);
 	
 	const defender = req.body.defender;
 	
@@ -40,7 +42,7 @@ router.post('/calc', function(req, res, next) {
 	  new Move(gen, 'Focus Blast')
 	);
 
-    res.json(attacker);
+    res.json(result);
 });
 
 function updateStats(pokemon, statName, value)
