@@ -18,7 +18,6 @@ router.post('/calc', function(req, res, next) {
 		evs: {spa: 252},
 	});
 	
-	attacker.baseStats.spa = specialAtk;
 	attacker.rawStats.spa = specialAtk;
 	attacker.stats.spa = specialAtk;
 	
@@ -33,7 +32,7 @@ router.post('/calc', function(req, res, next) {
 	  new Move(gen, 'Focus Blast')
 	);
 
-    res.json(result);
+    res.json(attacker);
 });
 
 module.exports = router;
