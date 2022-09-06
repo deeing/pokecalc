@@ -25,6 +25,8 @@ router.post('/calc', function(req, res, next) {
 	//attacker.rawStats.spa = specialAtk;
 	//attacker.stats.spa = specialAtk;
 	
+	const defender = req.body.defender;
+	
 	const result = calculate(
 	  gen,
 	  attacker,
