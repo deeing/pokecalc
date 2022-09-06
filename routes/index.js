@@ -21,7 +21,8 @@ router.post('/calc', function(req, res, next) {
 		nature: 'Serious',
 	});
 	
-	attacker.species.baseStats.spa = specialAtk;
+	updateStats(attacker, "atk", attack);
+	updateStats(attacker, "spa", specialAtk);
 	//attacker.rawStats.spa = specialAtk;
 	//attacker.stats.spa = specialAtk;
 	
