@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/calc', function(req, res, next) {
 	const gen = Generations.get(5); // alternatively: const gen = 5;
-	const specialAtk = req.body.atk;
+	const attack = req.body.atk;
 	const specialAtk = req.body.spa;
 	const defender = req.body.defender;
 	
