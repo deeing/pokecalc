@@ -1,10 +1,10 @@
-import express from 'express';
-import path from 'path';
-import cookieParser from 'cookie-parser';
-import logger from 'morgan';
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
 
-import indexRouter from './routes/index');
-import quotesRouter from './routes/quotes';
+var indexRouter = require('./routes/index');
+var quotesRouter = require('./routes/quotes');
 
 var app = express();
 
