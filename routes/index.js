@@ -10,8 +10,12 @@ router.get('/', function(req, res, next) {
 
 router.post('/calc', function(req, res, next) {
 	const gen = Generations.get(5); // alternatively: const gen = 5;
+	const hp = req.body.hp;
+	const attack = req.body.atk;
+	const defense = req.body.def;
 	const specialAtk = req.body.spa;
-	const defender = req.body.defender;
+	const specialDef = req.body.spd;
+	const speed = req.body.spe;
 	
 	const attacker = new Pokemon(gen, "Magikarp", {
 		nature: 'Serious',
