@@ -24,7 +24,7 @@ router.post('/calc', function(req, res, next) {
 		nature: 'Serious',
 	});
 	
-	//updateHPStat(attacker, hp);
+	updateHPStat(attacker, hp);
 	updateStats(attacker, "atk", attack);
 	updateStats(attacker, "def", defense);
 	updateStats(attacker, "spa", specialAtk);
